@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clock e Core do Processador | Analogia com o Corpo Humano</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar">
+      <div class="brand">CPU<span>Lab</span></div>
+      <div class="navlinks">
+        <a href="#clock">Clock</a>
+        <a href="#cores">Cores</a>
+        <a href="#analogia">Analogia</a>
+        <a href="#simulador">Simulador</a>
+      </div>
+    </nav>
+
+    <section class="hero-content">
+      <div>
+        <p class="eyebrow">Arquitetura de Computadores</p>
+        <h1>Clock e Core do Processador</h1>
+        <p class="hero-text">
+          Entenda como a frequência do processador organiza os ciclos de operação
+          e como os núcleos permitem executar várias tarefas ao mesmo tempo.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#simulador">Explorar simulação</a>
+          <a class="btn secondary" href="#analogia">Ver analogia</a>
+        </div>
+      </div>
+
+      <div class="cpu-card" aria-label="Ilustração de processador">
+        <div class="chip">
+          <div class="chip-core">CORE</div>
+          <div class="pulse-ring"></div>
+        </div>
+        <p>Processador sincronizado por ciclos de clock</p>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="clock" class="section grid-two">
+      <div>
+        <p class="eyebrow">Conceito técnico</p>
+        <h2>O que é clock?</h2>
+        <p>
+          O <strong>clock</strong> é a frequência que determina o ritmo interno de funcionamento
+          do processador. Ele marca ciclos regulares que sincronizam operações como buscar,
+          interpretar e executar instruções.
+        </p>
+        <p>
+          Essa frequência é medida em <strong>Hertz</strong>. Em processadores modernos,
+          normalmente falamos em <strong>GHz</strong>, isto é, bilhões de ciclos por segundo.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h3>Exemplo</h3>
+        <p><strong>4.0 GHz</strong> significa aproximadamente:</p>
+        <div class="big-number">4 bilhões</div>
+        <p>de ciclos por segundo.</p>
+      </div>
+    </section>
+
+    <section class="section cards-section">
+      <p class="eyebrow">Por que medir frequência?</p>
+      <h2>A frequência organiza o tempo do processador</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Sincronização</h3>
+          <p>O clock evita que dados e instruções sejam processados fora de ordem.</p>
+        </article>
+        <article class="card">
+          <h3>Estabilidade</h3>
+          <p>O processador precisa de um ritmo previsível para operar corretamente.</p>
+        </article>
+        <article class="card">
+          <h3>Desempenho</h3>
+          <p>Mais ciclos por segundo podem permitir mais operações em menos tempo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="analogia" class="section analogy-section">
+      <div class="section-title">
+        <p class="eyebrow">Analogia principal</p>
+        <h2>Clock como batimento cardíaco</h2>
+        <p>
+          O coração bombeia sangue em um ritmo constante. O clock faz algo parecido
+          com os dados dentro do processador: cria uma cadência para que tudo circule
+          e seja processado no momento certo.
+        </p>
+      </div>
+
+      <div class="body-analogy">
+        <div class="human-panel">
+          <div class="human-body">
+            <div class="head"></div>
+            <div class="torso">
+              <button id="heartBtn" class="heart" aria-label="Coração interativo">♥</button>
+              <div class="artery artery-left"></div>
+              <div class="artery artery-right"></div>
+              <div class="vein vein-left"></div>
+              <div class="vein vein-right"></div>
+            </div>
+            <div class="legs"></div>
+          </div>
+          <p class="hint">Clique no coração para pausar ou ativar o bombeamento.</p>
+        </div>
+
+        <div class="analogy-text">
+          <div class="legend-item arterial">
+            <span></span>
+            <div>
+              <h3>Sangue arterial</h3>
+              <p>Rico em oxigênio, sai do coração e leva recursos ao corpo. Na CPU, representa dados e instruções enviados para processamento.</p>
+            </div>
+          </div>
+
+          <div class="legend-item venous">
+            <span></span>
+            <div>
+              <h3>Sangue venoso</h3>
+              <p>Retorna ao coração após circular. Na CPU, representa resultados, respostas e dados já processados.</p>
+            </div>
+          </div>
+
+          <div class="legend-item clock">
+            <span></span>
+            <div>
+              <h3>Bombardeamento do coração</h3>
+              <p>Assim como cada batimento impulsiona o sangue, cada ciclo de clock impulsiona uma etapa lógica no processador.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cores" class="section grid-two reverse">
+      <div class="core-visual">
+        <div class="multi-chip">
+          <div>Core 1</div>
+          <div>Core 2</div>
+          <div>Core 3</div>
+          <div>Core 4</div>
+          <div>Core 5</div>
+          <div>Core 6</div>
+          <div>Core 7</div>
+          <div>Core 8</div>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Núcleos de processamento</p>
+        <h2>O que é core?</h2>
+        <p>
+          O <strong>core</strong> é um núcleo de processamento dentro da CPU. Cada núcleo pode executar
+          tarefas, instruções e processos. Quanto mais cores, maior a capacidade de trabalhar
+          com várias atividades ao mesmo tempo.
+        </p>
+        <p>
+          Na analogia do corpo humano, os cores seriam como várias unidades de bombeamento
+          ou vários centros de trabalho, permitindo que diferentes regiões recebam atenção simultânea.
+        </p>
+      </div>
+    </section>
+
+    <section id="simulador" class="section simulator">
+      <div class="section-title">
+        <p class="eyebrow">Interação</p>
+        <h2>Simule frequência e núcleos</h2>
+        <p>Altere os valores abaixo e observe como a analogia muda.</p>
+      </div>
+
+      <div class="sim-grid">
+        <div class="controls">
+          <label for="clockRange">Frequência de clock: <strong><span id="clockValue">3.2</span> GHz</strong></label>
+          <input id="clockRange" type="range" min="1" max="5" step="0.1" value="3.2" />
+
+          <label for="coreRange">Quantidade de cores: <strong><span id="coreValue">4</span></strong></label>
+          <input id="coreRange" type="range" min="1" max="12" step="1" value="4" />
+        </div>
+
+        <div class="simulation-output">
+          <div class="heart-monitor">
+            <div id="beatIcon" class="beat-icon">♥</div>
+            <p>Ritmo equivalente: <strong id="rhythmText">moderado</strong></p>
+          </div>
+
+          <div class="core-output" id="coreOutput"></div>
+
+          <div class="performance-box">
+            <h3>Leitura didática</h3>
+            <p id="performanceText"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section comparison">
+      <p class="eyebrow">Síntese</p>
+      <h2>Clock e core não são a mesma coisa</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Conceito</th>
+              <th>No corpo humano</th>
+              <th>No processador</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Clock</td>
+              <td>Frequência dos batimentos</td>
+              <td>Ritmo dos ciclos de operação</td>
+            </tr>
+            <tr>
+              <td>Core</td>
+              <td>Centros de bombeamento/trabalho</td>
+              <td>Núcleos que executam tarefas</td>
+            </tr>
+            <tr>
+              <td>Artérias</td>
+              <td>Levam sangue arterial</td>
+              <td>Levam dados e instruções</td>
+            </tr>
+            <tr>
+              <td>Veias</td>
+              <td>Retornam sangue venoso</td>
+              <td>Retornam resultados processados</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Material didático — Clock, Core e Arquitetura de Processadores</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
