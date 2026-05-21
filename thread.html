@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Threads do Processador | CPU Lab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero thread-hero">
+    <nav class="topbar">
+      <div class="brand">CPU<span>Lab</span></div>
+      <div class="navlinks">
+        <a href="index.html">Clock e Core</a>
+        <a href="#conceito-thread">Thread</a>
+        <a href="#smt">SMT/Hyper-Threading</a>
+        <a href="#simulador-thread">Simulador</a>
+      </div>
+    </nav>
+
+    <section class="hero-content">
+      <div>
+        <p class="eyebrow">Arquitetura de Computadores</p>
+        <h1>Thread: a linha de execução da CPU</h1>
+        <p class="hero-text">
+          Entenda o que é thread, como ela se relaciona com processos, cores e clock,
+          e por que sistemas modernos usam várias linhas de execução ao mesmo tempo.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#simulador-thread">Explorar simulação</a>
+          <a class="btn secondary" href="#analogia-thread">Ver analogia do corpo humano</a>
+        </div>
+      </div>
+
+      <div class="thread-chip-card" aria-label="Ilustração de processador com threads">
+        <div class="thread-chip">
+          <div class="thread-core-card"><span>Core 1</span><b>T1</b><b>T2</b></div>
+          <div class="thread-core-card"><span>Core 2</span><b>T3</b><b>T4</b></div>
+          <div class="thread-core-card"><span>Core 3</span><b>T5</b><b>T6</b></div>
+          <div class="thread-core-card"><span>Core 4</span><b>T7</b><b>T8</b></div>
+        </div>
+        <p>Threads são caminhos de execução que disputam tempo e recursos da CPU.</p>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="conceito-thread" class="section grid-two">
+      <div>
+        <p class="eyebrow">Conceito técnico</p>
+        <h2>O que é uma thread?</h2>
+        <p>
+          Uma <strong>thread</strong> é uma linha de execução dentro de um programa. Ela representa
+          uma sequência de instruções que o processador pode executar. Um programa pode ter
+          uma única thread ou várias threads trabalhando em paralelo ou alternadamente.
+        </p>
+        <p>
+          Em termos simples: o processo é o “programa em execução”; a thread é o “caminho de trabalho”
+          dentro desse programa. Um editor de vídeo, por exemplo, pode usar uma thread para a interface,
+          outra para exportação, outra para áudio e outra para efeitos.
+        </p>
+      </div>
+
+      <div class="info-box thread-definition-box">
+        <h3>Processo x Thread</h3>
+        <p><strong>Processo:</strong> programa carregado na memória, com recursos próprios.</p>
+        <p><strong>Thread:</strong> fluxo de execução que trabalha dentro do processo.</p>
+        <div class="mini-process">
+          <div class="process-shell">
+            <span>Processo</span>
+            <i>Thread A</i>
+            <i>Thread B</i>
+            <i>Thread C</i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cards-section">
+      <p class="eyebrow">Por que threads existem?</p>
+      <h2>Threads tornam o sistema mais responsivo</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Responsividade</h3>
+          <p>Uma thread pode cuidar da interface enquanto outra executa uma tarefa pesada.</p>
+        </article>
+        <article class="card">
+          <h3>Paralelismo</h3>
+          <p>Em CPUs com vários cores, diferentes threads podem executar ao mesmo tempo.</p>
+        </article>
+        <article class="card">
+          <h3>Aproveitamento</h3>
+          <p>Quando uma thread espera dados, outra pode ocupar a CPU e reduzir tempo ocioso.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="analogia-thread" class="section analogy-section">
+      <div class="section-title">
+        <p class="eyebrow">Analogia com o corpo humano</p>
+        <h2>Threads como fluxos coordenados do organismo</h2>
+        <p>
+          Na página anterior, o clock foi comparado aos batimentos do coração e os cores a unidades
+          de processamento. Agora, pense nas threads como tarefas simultâneas do corpo: respirar,
+          circular sangue, mover músculos, processar estímulos e manter a visão funcionando.
+        </p>
+      </div>
+
+      <div class="body-analogy thread-body-grid">
+        <div class="human-panel">
+          <div class="human-body thread-human">
+            <div class="head"><span class="brain-dot"></span></div>
+            <div class="torso">
+              <button class="heart" aria-label="Coração ilustrativo">♥</button>
+              <div class="thread-flow flow-blood">Sangue</div>
+              <div class="thread-flow flow-air">Respiração</div>
+              <div class="thread-flow flow-nerve">Sinal nervoso</div>
+              <div class="thread-flow flow-muscle">Movimento</div>
+            </div>
+            <div class="legs"></div>
+          </div>
+        </div>
+
+        <div class="analogy-text">
+          <div class="legend-item arterial">
+            <span></span>
+            <div>
+              <h3>Fluxo sanguíneo</h3>
+              <p>Seria uma thread contínua de “distribuição”: transportar oxigênio, nutrientes e retornar resíduos.</p>
+            </div>
+          </div>
+          <div class="legend-item venous">
+            <span></span>
+            <div>
+              <h3>Respiração</h3>
+              <p>Outra thread mantém entrada de oxigênio e saída de gás carbônico, sem interromper a circulação.</p>
+            </div>
+          </div>
+          <div class="legend-item clock">
+            <span></span>
+            <div>
+              <h3>Sinais nervosos</h3>
+              <p>Threads de controle enviam comandos rápidos, como mover a mão ou reagir a um estímulo visual.</p>
+            </div>
+          </div>
+          <div class="legend-item thread-legend">
+            <span></span>
+            <div>
+              <h3>Coordenação</h3>
+              <p>O corpo não executa uma função por vez. O sistema operacional também coordena muitas threads simultâneas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grid-two reverse">
+      <div class="timeline-visual">
+        <div class="time-row"><strong>Core 1</strong><span>T1</span><span>T1</span><span>T2</span><span>T2</span></div>
+        <div class="time-row"><strong>Core 2</strong><span>T3</span><span>T4</span><span>T3</span><span>T4</span></div>
+        <div class="time-row"><strong>Espera</strong><em>I/O</em><em></em><em>I/O</em><em></em></div>
+      </div>
+      <div>
+        <p class="eyebrow">Escalonamento</p>
+        <h2>Como a CPU alterna threads?</h2>
+        <p>
+          O sistema operacional possui um componente chamado <strong>escalonador</strong>. Ele decide
+          qual thread receberá tempo de CPU, por quanto tempo e em qual core. Essa divisão cria
+          a sensação de que muitas tarefas estão acontecendo ao mesmo tempo.
+        </p>
+        <p>
+          Quando existem mais threads do que cores disponíveis, a CPU alterna rapidamente entre elas.
+          Essa troca é chamada de <strong>troca de contexto</strong>. Ela é útil, mas tem custo: salvar o estado
+          de uma thread e carregar o estado de outra consome tempo.
+        </p>
+      </div>
+    </section>
+
+    <section id="smt" class="section cards-section">
+      <p class="eyebrow">Threads lógicas</p>
+      <h2>SMT e Hyper-Threading</h2>
+      <div class="cards wide-cards">
+        <article class="card">
+          <h3>Core físico</h3>
+          <p>É uma unidade real de processamento dentro do chip. Possui estruturas próprias para buscar, decodificar e executar instruções.</p>
+        </article>
+        <article class="card">
+          <h3>Thread lógica</h3>
+          <p>É uma “pista” extra de execução oferecida pelo processador para aproveitar melhor partes do core que ficariam ociosas.</p>
+        </article>
+        <article class="card">
+          <h3>Hyper-Threading</h3>
+          <p>Nome comercial usado pela Intel para uma forma de SMT, permitindo que um core físico apareça como duas threads lógicas.</p>
+        </article>
+      </div>
+      <div class="warning-box">
+        <h3>Atenção importante</h3>
+        <p>
+          Duas threads lógicas não equivalem a dois cores físicos completos. Elas melhoram aproveitamento,
+          mas ainda compartilham recursos internos do mesmo core.
+        </p>
+      </div>
+    </section>
+
+    <section class="section grid-two">
+      <div>
+        <p class="eyebrow">Exemplo cotidiano</p>
+        <h2>Threads em um navegador</h2>
+        <p>
+          Um navegador moderno pode executar várias threads: uma para renderizar a página,
+          outra para processar JavaScript, outra para baixar arquivos, outra para áudio/vídeo
+          e outras para segurança ou extensões.
+        </p>
+        <p>
+          Isso evita que a página inteira “congele” sempre que uma tarefa demora. Se uma aba está
+          carregando vídeo, outra ainda pode aceitar clique, rolagem e digitação.
+        </p>
+      </div>
+      <div class="browser-visual">
+        <div class="browser-bar"><span></span><span></span><span></span></div>
+        <div class="browser-thread-list">
+          <p><b>Thread UI</b> — botões, cliques e rolagem</p>
+          <p><b>Thread JS</b> — scripts da página</p>
+          <p><b>Thread Rede</b> — downloads e requisições</p>
+          <p><b>Thread Mídia</b> — áudio e vídeo</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="simulador-thread" class="section simulator">
+      <div class="section-title">
+        <p class="eyebrow">Interação</p>
+        <h2>Simule cores, threads e carga de trabalho</h2>
+        <p>Altere os valores e observe como as tarefas são distribuídas.</p>
+      </div>
+
+      <div class="sim-grid">
+        <div class="controls">
+          <label for="threadCoreRange">Cores físicos: <strong><span id="threadCoreValue">4</span></strong></label>
+          <input id="threadCoreRange" type="range" min="1" max="12" step="1" value="4" />
+
+          <label for="logicalThreadRange">Threads lógicas por core: <strong><span id="logicalThreadValue">2</span></strong></label>
+          <input id="logicalThreadRange" type="range" min="1" max="2" step="1" value="2" />
+
+          <label for="taskRange">Tarefas abertas: <strong><span id="taskValue">10</span></strong></label>
+          <input id="taskRange" type="range" min="1" max="32" step="1" value="10" />
+        </div>
+
+        <div class="simulation-output">
+          <div class="thread-meter">
+            <p>Capacidade lógica: <strong><span id="capacityText">8</span> threads</strong></p>
+            <div class="meter"><div id="threadLoadBar"></div></div>
+            <p id="threadStatusText">Carga equilibrada.</p>
+          </div>
+          <div class="thread-output" id="threadOutput"></div>
+          <div class="performance-box">
+            <h3>Leitura didática</h3>
+            <p id="threadPerformanceText"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section comparison">
+      <p class="eyebrow">Síntese</p>
+      <h2>Processo, thread, core e clock</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Conceito</th>
+              <th>Explicação</th>
+              <th>Analogia corporal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Clock</td>
+              <td>Ritmo de ciclos da CPU.</td>
+              <td>Batimento do coração.</td>
+            </tr>
+            <tr>
+              <td>Core</td>
+              <td>Núcleo físico que executa instruções.</td>
+              <td>Unidade de trabalho do organismo.</td>
+            </tr>
+            <tr>
+              <td>Thread</td>
+              <td>Linha de execução de uma tarefa.</td>
+              <td>Fluxo simultâneo: respirar, circular, mover, reagir.</td>
+            </tr>
+            <tr>
+              <td>Processo</td>
+              <td>Programa em execução com recursos próprios.</td>
+              <td>Um sistema do corpo realizando uma função maior.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>CPU Lab — Material didático interativo sobre arquitetura de computadores.</p>
+    <a href="index.html">Voltar para Clock e Core</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
